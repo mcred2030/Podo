@@ -22,6 +22,7 @@ const Header: FC = () => {
       alignItems="center"
       px={8}
       shadow="md"
+      zIndex={1}
     >
       <Box fontWeight="bold" fontSize="lg" cursor="pointer">
         <Link href="/">

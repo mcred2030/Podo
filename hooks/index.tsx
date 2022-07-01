@@ -1,6 +1,6 @@
 import Caver, { Contract } from "caver-js";
 import { MINT_NFT_ABI, MINT_NFT_ADDRESS } from "caverConfig";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useAccount = () => {
   const [account, setAccount] = useState<string>("");
@@ -43,4 +43,29 @@ export const useCaver = () => {
   }, [caver]);
 
   return { caver, mintNFTContract };
+};
+
+export const useAnimate = () => {
+  const [isAnimated, setIsAnimated] = useState<boolean>(false);
+
+  const dom = useRef<HTMLDivElement>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    const observe = () => {
+      if (dom.current) {
+        observer.current = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) setIsAnimated(true);
+          else setIsAnimated(false);
+        });
+        observer.current.observe(dom.current);
+
+        return () => observer.current && observer.current.disconnect;
+      }
+    };
+
+    observe();
+  }, [dom]);
+
+  return { isAnimated, dom };
 };

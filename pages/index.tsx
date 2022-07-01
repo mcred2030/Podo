@@ -10,9 +10,7 @@ import { Box } from "@chakra-ui/react";
 const Home: NextPage = () => {
   return (
     <>
-      {/* <Title /> */}
-      {/* Temp */}
-      <Box mb={12}></Box>
+      <Title />
       <Story />
       <Roadmap />
       <Team />
