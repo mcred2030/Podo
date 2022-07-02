@@ -1,17 +1,28 @@
 import { Box, Button, Flex, Image, Text, useColorMode } from "@chakra-ui/react";
 import axios from "axios";
 import { MINT_NFT_ADDRESS } from "caverConfig";
-import { useAccount, useCaver } from "hooks";
+import { useCaver } from "hooks";
 import { NextPage } from "next";
 import { useState } from "react";
 
 const Minting: NextPage = () => {
+  const [account, setAccount] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [newNFT, setNewNFT] = useState<any>(undefined);
 
-  const { account } = useAccount();
   const { caver, mintNFTContract } = useCaver();
 
   const { colorMode } = useColorMode();
+
+  const onClickKaikas = async () => {
+    try {
+      const accounts = await window.klaytn.enable();
+
+      setAccount(accounts[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onClickMint = async () => {
     try {
@@ -20,6 +31,8 @@ const Minting: NextPage = () => {
       //   value: caver?.utils.convertToPeb(2, "KLAY"),
       //   gas: 3000000,
       // });
+
+      setIsLoading(true);
 
       const response = await caver?.klay.sendTransaction({
         type: "SMART_CONTRACT_EXECUTION",
@@ -55,53 +68,94 @@ const Minting: NextPage = () => {
           }
         }
       }
+
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+
+      setIsLoading(false);
     }
   };
 
   return (
-    <Flex justifyContent="center" alignItems="center" minH="100vh">
-      <Flex
-        justifyContent="center"
-        alignItems="center"
-        w={512}
-        h={512}
-        border="2px"
-        borderColor={colorMode === "light" ? "gray.300" : "gray.500"}
-        borderRadius="lg"
-      >
-        {newNFT ? (
-          <Image src={newNFT.image} borderRadius="lg" />
-        ) : (
-          <Box>ProjectLion NFT</Box>
-        )}
-      </Flex>
-      <Flex ml={8} direction="column" minH={512} minW={300}>
-        <Text>Price : 2 Klay</Text>
-        <Button size="lg" colorScheme="green" onClick={onClickMint}>
-          Minting
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      minH="100vh"
+      flexDir="column"
+    >
+      {account === "" ? (
+        <Button onClick={onClickKaikas} size="lg" colorScheme="orange">
+          <Image
+            src={
+              colorMode === "light"
+                ? "images/kaikas-white.png"
+                : "images/kaikas.png"
+            }
+            w={8}
+            mr={2}
+          />
+          Connect to Kaikas
         </Button>
-        {newNFT && (
-          <>
-            <Text fontSize="xl" mt={4}>
-              Name : {newNFT.name}
-            </Text>
-            <Text fontSize="xl" mt={4}>
-              Description : {newNFT.description}
-            </Text>
-            <Text fontSize="xl" mt={4}>
-              Attributes
-            </Text>
-            {newNFT.attributes.map((v: any, i: number) => {
-              return (
-                <Text key={i} mt={2}>
-                  {v.trait_type} : {v.value}
-                </Text>
-              );
-            })}
-          </>
-        )}
+      ) : (
+        <Flex>
+          <Button fontSize="2xl" colorScheme="orange" variant="ghost">
+            Account - {account}
+          </Button>
+          <Button onClick={() => setAccount("")} colorScheme="orange">
+            Disconnect
+          </Button>
+        </Flex>
+      )}
+      <Flex mt="8">
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          w={512}
+          h={512}
+          border="2px"
+          borderColor={colorMode === "light" ? "gray.300" : "gray.500"}
+          borderRadius="lg"
+        >
+          {newNFT ? (
+            <Image src={newNFT.image} borderRadius="lg" />
+          ) : (
+            <Box>ProjectLion NFT</Box>
+          )}
+        </Flex>
+        <Flex ml={8} direction="column" minH={512} minW={300}>
+          <Text>Price : 2 Klay</Text>
+          <Button
+            size="lg"
+            colorScheme="green"
+            onClick={onClickMint}
+            disabled={account === "" || isLoading}
+            isLoading={isLoading}
+            loadingText="Loading ..."
+          >
+            Minting
+          </Button>
+          {newNFT && (
+            <>
+              <Text fontSize="xl" mt={4}>
+                Name : {newNFT.name}
+              </Text>
+              <Text fontSize="xl" mt={4}>
+                Description : {newNFT.description}
+              </Text>
+              <Text fontSize="xl" mt={4}>
+                Attributes
+              </Text>
+              {newNFT.attributes.map((v: any, i: number) => {
+                return (
+                  <Text key={i} mt={2}>
+                    {v.trait_type} : {v.value}
+                  </Text>
+                );
+              })}
+            </>
+          )}
+        </Flex>
       </Flex>
     </Flex>
   );

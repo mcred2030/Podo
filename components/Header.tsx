@@ -23,6 +23,7 @@ const Header: FC = () => {
       px={8}
       shadow="md"
       zIndex={1}
+      flexDir={["column", "column", "row"]}
     >
       <Box fontWeight="bold" fontSize="lg" cursor="pointer">
         <Link href="/">
@@ -40,32 +41,32 @@ const Header: FC = () => {
       <Box>
         {scrollLink.map((v, i) => {
           return (
-            <ScrollLink key={i} to={v} spy={true} smooth="true">
-              <Button variant="ghost" mx={8}>
+            <ScrollLink key={i} to={v} spy={true} smooth={true}>
+              <Button variant="ghost" mx={[0, 0, 8]} size={["xs", "sm", "md"]}>
                 {v}
               </Button>
             </ScrollLink>
           );
         })}
       </Box>
-      <Flex alignItems="center">
+      <Flex alignItems="center" my={[4, 4, 0]}>
         <Link href="https://discord.gg/JV4whBWNPs">
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size={["xs", "xs", "sm"]}>
             <FaDiscord size={24} />
           </Button>
         </Link>
         <Link href="https://www.instagram.com/projectlion.io/">
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size={["xs", "xs", "sm"]}>
             <FaInstagram size={24} />
           </Button>
         </Link>
         <Box onClick={toggleColorMode}>
           {colorMode === "light" ? (
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size={["xs", "xs", "sm"]}>
               <IoMoon size={24} />
             </Button>
           ) : (
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size={["xs", "xs", "sm"]}>
               <IoSunny size={24} />
             </Button>
           )}
@@ -75,7 +76,7 @@ const Header: FC = () => {
             href={router.asPath}
             locale={router.locale === "en" ? "ko" : "en"}
           >
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size={["xs", "xs", "sm"]}>
               {router.locale === "en" ? "EN" : "KO"}
             </Button>
           </Link>

@@ -27,7 +27,7 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
       className={isAnimated ? "animate__animated animate__" + animation : ""}
     >
       <Flex
-        w="50%"
+        w={["full", "full", "50%"]}
         bgGradient={
           colorMode === "light"
             ? `linear(to-b, yellow.100, yellow.200, yellow.300, yellow.400)`
@@ -41,10 +41,12 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
         flexDir="column"
         shadow="lg"
       >
-        <Text fontSize="2xl" fontWeight="bold">
+        <Text fontSize={["md", "md", "2xl"]} fontWeight="bold">
           {title}
         </Text>
-        <Text mt={2}>{description}</Text>
+        <Text mt={2} fontSize={["xs", "xs", "md"]}>
+          {description}
+        </Text>
       </Flex>
     </Flex>
   );

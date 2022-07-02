@@ -9,10 +9,10 @@ const Footer: FC = () => {
       justifyContent="center"
       alignItems="center"
       flexDir="column"
-      py="4"
+      p={[4, 4, 2]}
       bgColor={colorMode === "light" ? "gray.100" : "gray.900"}
     >
-      <Text fontSize="sm">
+      <Text fontSize={["xs", "xs", "sm"]}>
         Team ProjectLion NFT | 443, Teheran-ro, Gangnam-gu, Seoul, Republic of
         Korea | E-Mail h662@olbm.app
       </Text>

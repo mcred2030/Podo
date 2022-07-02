@@ -17,7 +17,7 @@ const TeamCard: FC<TeamCardProps> = ({ name, position, image, color }) => {
 
   return (
     <Flex
-      m={8}
+      m={[8, 8, 8, 4]}
       className={`${isAnimated && "animate__animated animate__tada"}`}
       ref={dom}
       bgGradient={
@@ -25,8 +25,8 @@ const TeamCard: FC<TeamCardProps> = ({ name, position, image, color }) => {
           ? `linear(to-b, ${color}.500, ${color}.400, ${color}.300, ${color}.200)`
           : `linear(to-b, ${color}.100, ${color}.300, ${color}.500, ${color}.700)`
       }
-      w={250}
-      h={350}
+      w={225}
+      py={6}
       rounded="xl"
       justifyContent="center"
       alignItems="center"

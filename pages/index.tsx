@@ -5,7 +5,6 @@ import Team from "@components/Team";
 import type { NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Title from "@components/Title";
-import { Box } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (
