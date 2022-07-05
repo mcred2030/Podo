@@ -50,6 +50,11 @@ const Header: FC = () => {
         })}
       </Box>
       <Flex alignItems="center" my={[4, 4, 0]}>
+        <Link href="https://testnets.opensea.io/collection/projectlion-nft">
+          <Button variant="ghost" size={["xs", "xs", "sm"]}>
+            <Image src="images/opensea.png" alt="opensea" w={6} />
+          </Button>
+        </Link>
         <Link href="https://discord.gg/JV4whBWNPs">
           <Button variant="ghost" size={["xs", "xs", "sm"]}>
             <FaDiscord size={24} />

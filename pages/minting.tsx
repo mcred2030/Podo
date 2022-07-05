@@ -38,7 +38,6 @@ const Minting: NextPage = () => {
         type: "SMART_CONTRACT_EXECUTION",
         from: account,
         to: MINT_NFT_ADDRESS,
-        value: caver.utils.convertToPeb(2, "KLAY"),
         gas: 3000000,
         data: mintNFTContract?.methods.mintNFT().encodeABI(),
       });
@@ -61,7 +60,7 @@ const Minting: NextPage = () => {
             if (tokenURI) {
               const imageResponse = await axios.get(tokenURI);
 
-              if (imageResponse.statusText === "OK") {
+              if (imageResponse.status === 200) {
                 setNewNFT(imageResponse.data);
               }
             }
@@ -118,13 +117,17 @@ const Minting: NextPage = () => {
           borderRadius="lg"
         >
           {newNFT ? (
-            <Image src={newNFT.image} borderRadius="lg" />
+            <Image
+              src={newNFT.image}
+              borderRadius="lg"
+              fallbackSrc="images/loading.png"
+            />
           ) : (
-            <Box>ProjectLion NFT</Box>
+            <Image src="images/loading.png" borderRadius="lg" />
           )}
         </Flex>
         <Flex ml={8} direction="column" minH={512} minW={300}>
-          <Text>Price : 2 Klay</Text>
+          <Text>Price : 0 Klay</Text>
           <Button
             size="lg"
             colorScheme="green"
@@ -135,26 +138,54 @@ const Minting: NextPage = () => {
           >
             Minting
           </Button>
-          {newNFT && (
-            <>
-              <Text fontSize="xl" mt={4}>
-                Name : {newNFT.name}
-              </Text>
-              <Text fontSize="xl" mt={4}>
-                Description : {newNFT.description}
-              </Text>
-              <Text fontSize="xl" mt={4}>
-                Attributes
-              </Text>
-              {newNFT.attributes.map((v: any, i: number) => {
-                return (
-                  <Text key={i} mt={2}>
-                    {v.trait_type} : {v.value}
-                  </Text>
-                );
-              })}
-            </>
-          )}
+          <Box mt={8}>
+            {newNFT ? (
+              <>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Name</Text>
+                  <Text>: {newNFT.name}</Text>
+                </Flex>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Description</Text>
+                  <Text>: </Text>
+                </Flex>
+                <Text fontSize="xl" mt={4}>
+                  {newNFT.description}
+                </Text>
+                {newNFT.attributes.map((v: any, i: number) => {
+                  return (
+                    <Flex key={i} fontSize="xl" mt={4}>
+                      <Text w="50%">{v.trait_type}</Text>
+                      <Text>: {v.value}</Text>
+                    </Flex>
+                  );
+                })}
+              </>
+            ) : (
+              <>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Name</Text>
+                  <Text>:</Text>
+                </Flex>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Description</Text>
+                  <Text>:</Text>
+                </Flex>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Background</Text>
+                  <Text>:</Text>
+                </Flex>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Pattern</Text>
+                  <Text>:</Text>
+                </Flex>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Lion</Text>
+                  <Text>:</Text>
+                </Flex>
+              </>
+            )}
+          </Box>
         </Flex>
       </Flex>
     </Flex>
