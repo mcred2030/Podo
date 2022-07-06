@@ -106,12 +106,12 @@ const Minting: NextPage = () => {
           </Button>
         </Flex>
       )}
-      <Flex mt="8">
+      <Flex mt="8" justifyContent="center" alignItems="center">
         <Flex
           justifyContent="center"
           alignItems="center"
-          w={512}
-          h={512}
+          w={256}
+          h={256}
           border="2px"
           borderColor={colorMode === "light" ? "gray.300" : "gray.500"}
           borderRadius="lg"
