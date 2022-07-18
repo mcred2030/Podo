@@ -7,6 +7,8 @@ interface RoadmapCardProps {
   animation: string;
   title: string;
   description: string;
+  color: string;
+  colorDark: string;
 }
 
 const RoadmapCard: FC<RoadmapCardProps> = ({
@@ -14,6 +16,8 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
   animation,
   title,
   description,
+  color,
+  colorDark,
 }) => {
   const { isAnimated, dom } = useAnimate();
 
@@ -30,8 +34,8 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
         w={["full", "full", "50%"]}
         bgGradient={
           colorMode === "light"
-            ? `linear(to-b, yellow.100, yellow.200, yellow.300, yellow.400)`
-            : `linear(to-b, purple.300, purple.500, purple.700, purple.900)`
+            ? `linear(to-b, ${color}.100, ${color}.200, ${color}.300, ${color}.400)`
+            : `linear(to-b, ${color}.300, ${color}.500, ${color}.700, ${color}.900)`
         }
         rounded="2xl"
         m={2}

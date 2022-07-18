@@ -6,6 +6,13 @@ import { Link as ScrollLink } from "react-scroll";
 import { FaDiscord, FaInstagram } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
+// @ 로고 이미지는 public/images를 교체하시면 됩니다. URL은 우리 프로젝트의 URL을 작성하시면 됩니다.
+const logoImage = "logo_black.png";
+const logoImageDark = "logo_white.png";
+const openseaURL = "https://testnets.opensea.io/collection/projectlion-nft";
+const discordURL = "https://discord.gg/JV4whBWNPs";
+const instagramURL = "https://www.instagram.com/projectlion.io/";
+
 const Header: FC = () => {
   const scrollLink = ["Story", "Roadmap", "Team"];
 
@@ -31,10 +38,10 @@ const Header: FC = () => {
             w={200}
             src={
               colorMode === "light"
-                ? "images/logo_black.png"
-                : "images/logo_white.png"
+                ? `../images/${logoImage}`
+                : `../images/${logoImageDark}`
             }
-            alt="ProjectLion NFT"
+            alt="LOGO"
           />
         </Link>
       </Box>
@@ -50,17 +57,17 @@ const Header: FC = () => {
         })}
       </Box>
       <Flex alignItems="center" my={[4, 4, 0]}>
-        <Link href="https://testnets.opensea.io/collection/projectlion-nft">
+        <Link href={openseaURL}>
           <Button variant="ghost" size={["xs", "xs", "sm"]}>
-            <Image src="images/opensea.png" alt="opensea" w={6} />
+            <Image src="../images/opensea.png" alt="opensea" w={6} />
           </Button>
         </Link>
-        <Link href="https://discord.gg/JV4whBWNPs">
+        <Link href={discordURL}>
           <Button variant="ghost" size={["xs", "xs", "sm"]}>
             <FaDiscord size={24} />
           </Button>
         </Link>
-        <Link href="https://www.instagram.com/projectlion.io/">
+        <Link href={instagramURL}>
           <Button variant="ghost" size={["xs", "xs", "sm"]}>
             <FaInstagram size={24} />
           </Button>

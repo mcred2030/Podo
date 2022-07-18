@@ -2,6 +2,21 @@ import { Box, Flex, Image, Text, useColorMode } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 
+// @ 이미지는 public/images, 스토리 내용은 public/locales의 json 파일을 각각 수정해서 사용하시면 됩니다.
+const storyImage = "lion.gif";
+const storyConfig = [
+  {
+    mt: 0,
+    title: "storyTitle1",
+    description: "story1",
+  },
+  {
+    mt: 8,
+    title: "storyTitle2",
+    description: "story2",
+  },
+];
+
 const Story: FC = () => {
   const { t } = useTranslation("common");
 
@@ -20,7 +35,11 @@ const Story: FC = () => {
           <Text textAlign="center" mb={8} fontSize="4xl" fontWeight="bold">
             {t("story")}
           </Text>
-          <Image src="images/lion.gif" borderRadius="2xl" />
+          <Image
+            src={`../images/${storyImage}`}
+            borderRadius="2xl"
+            alt="story"
+          />
         </Box>
       </Flex>
       <Flex
@@ -35,10 +54,14 @@ const Story: FC = () => {
           py={8}
           borderRadius="2xl"
         >
-          <Text>{t("storyTitle1")}</Text>
-          <Text mt={2}>{t("story1")}</Text>
-          <Text mt={8}>{t("storyTitle2")}</Text>
-          <Text mt={2}>{t("story2")}</Text>
+          {storyConfig.map((v, i) => {
+            return (
+              <Box key={i} mt={v.mt}>
+                <Text fontWeight="bold">{t(v.title)}</Text>
+                <Text mt={2}>{t(v.description)}</Text>
+              </Box>
+            );
+          })}
         </Box>
       </Flex>
     </Flex>

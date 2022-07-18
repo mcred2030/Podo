@@ -3,6 +3,8 @@ import axios from "axios";
 import { MINT_NFT_ADDRESS } from "caverConfig";
 import { useCaver } from "hooks";
 import { NextPage } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useState } from "react";
 
 const Minting: NextPage = () => {
@@ -88,11 +90,12 @@ const Minting: NextPage = () => {
           <Image
             src={
               colorMode === "light"
-                ? "images/kaikas-white.png"
-                : "images/kaikas.png"
+                ? "../images/kaikas-white.png"
+                : "../images/kaikas.png"
             }
             w={8}
             mr={2}
+            alt="kaikas"
           />
           Connect to Kaikas
         </Button>
@@ -120,10 +123,15 @@ const Minting: NextPage = () => {
             <Image
               src={newNFT.image}
               borderRadius="lg"
-              fallbackSrc="images/loading.png"
+              fallbackSrc="../images/loading.png"
+              alt="nft"
             />
           ) : (
-            <Image src="images/loading.png" borderRadius="lg" />
+            <Image
+              src="../images/loading.png"
+              borderRadius="lg"
+              alt="loading"
+            />
           )}
         </Flex>
         <Flex ml={8} direction="column" minH={512} minW={300}>
@@ -152,6 +160,9 @@ const Minting: NextPage = () => {
                 <Text fontSize="xl" mt={4}>
                   {newNFT.description}
                 </Text>
+                <Flex fontSize="xl" mt={4}>
+                  <Text w="50%">Attributes</Text>
+                </Flex>
                 {newNFT.attributes.map((v: any, i: number) => {
                   return (
                     <Flex key={i} fontSize="xl" mt={4}>
@@ -172,16 +183,7 @@ const Minting: NextPage = () => {
                   <Text>:</Text>
                 </Flex>
                 <Flex fontSize="xl" mt={4}>
-                  <Text w="50%">Background</Text>
-                  <Text>:</Text>
-                </Flex>
-                <Flex fontSize="xl" mt={4}>
-                  <Text w="50%">Pattern</Text>
-                  <Text>:</Text>
-                </Flex>
-                <Flex fontSize="xl" mt={4}>
-                  <Text w="50%">Lion</Text>
-                  <Text>:</Text>
+                  <Text w="50%">Attributes</Text>
                 </Flex>
               </>
             )}
@@ -191,5 +193,11 @@ const Minting: NextPage = () => {
     </Flex>
   );
 };
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
 export default Minting;

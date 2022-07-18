@@ -8,9 +8,16 @@ interface TeamCardProps {
   position: string;
   image: string;
   color: string;
+  animation: string;
 }
 
-const TeamCard: FC<TeamCardProps> = ({ name, position, image, color }) => {
+const TeamCard: FC<TeamCardProps> = ({
+  name,
+  position,
+  image,
+  color,
+  animation,
+}) => {
   const { colorMode } = useColorMode();
 
   const { isAnimated, dom } = useAnimate();
@@ -18,7 +25,7 @@ const TeamCard: FC<TeamCardProps> = ({ name, position, image, color }) => {
   return (
     <Flex
       m={[8, 8, 8, 4]}
-      className={`${isAnimated && "animate__animated animate__tada"}`}
+      className={`${isAnimated && "animate__animated animate__" + animation}`}
       ref={dom}
       bgGradient={
         colorMode === "light"
@@ -33,7 +40,7 @@ const TeamCard: FC<TeamCardProps> = ({ name, position, image, color }) => {
       flexDir="column"
       shadow="lg"
     >
-      <Image src={`images/${image}.png`} w={175} rounded="full" />
+      <Image src={`../images/${image}`} w={175} rounded="full" alt="team" />
       <Text mt={4} fontSize="4xl">
         {name}
       </Text>
