@@ -39,13 +39,12 @@ const Roadmap: FC = () => {
 
   return (
     <Flex
-      minH="100vh"
       alignItems="center"
       id="Roadmap"
       flexDir="column"
       mb={24}
     >
-      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16}>
+      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="160">
         {t("")}
       </Box>
       {roadmapCardConfig.map((v, i) => {

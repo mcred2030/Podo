@@ -7,6 +7,8 @@ import { FaDiscord, FaInstagram } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 // @ 로고 이미지는 public/images를 교체하시면 됩니다. URL은 우리 프로젝트의 URL을 작성하시면 됩니다.
+
+
 const logoImage = "logo01.png";
 const logoImageDark = "logo01.png";
 const openseaURL = "https://testnets.opensea.io/collection/projectlion-nft";
@@ -19,6 +21,7 @@ const Header: FC = () => {
   const router = useRouter();
 
   const { colorMode, toggleColorMode } = useColorMode();
+  const color = "purple";
 
   return (
     <Flex
@@ -28,10 +31,13 @@ const Header: FC = () => {
       justifyContent="space-between"
       alignItems="center"
       px={8}
-      shadow="md"
-      zIndex={1}
+      zIndex={2}
       flexDir={["column", "column", "row"]}
+      bgColor="white"
     >
+     
+
+
       <Box fontWeight="bold" fontSize="lg" cursor="pointer">
         <Link href="/">
           <Image
@@ -46,15 +52,7 @@ const Header: FC = () => {
         </Link>
       </Box>
       <Box>
-        {scrollLink.map((v, i) => {
-          return (
-            <ScrollLink key={i} to={v} spy={true} smooth={true}>
-              <Button variant="ghost" mx={[0, 0, 8]} size={["xs", "sm", "md"]}>
-                {v}
-              </Button>
-            </ScrollLink>
-          );
-        })}
+       
       </Box>
       <Flex alignItems="center" my={[4, 4, 0]}>
         <Link href={openseaURL}>
@@ -94,6 +92,8 @@ const Header: FC = () => {
           </Link>
         </Box>
       </Flex>
+
+      
     </Flex>
   );
 };

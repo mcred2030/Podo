@@ -47,8 +47,9 @@ const Team: FC = () => {
   const { t } = useTranslation("common");
 
   return (
-    <Flex minH="100vh" alignItems="center" id="Team" flexDir="column">
-      <Box fontSize="6xl" fontWeight="bold" mt={4}>
+    <Flex 
+      alignItems="center" id="Team" flexDir="column">
+      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="160">
         {t("")}
       </Box>
       <Grid

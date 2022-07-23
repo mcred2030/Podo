@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 
 // @ 타이틀 이미지는 이미지에 마우스를 올리면 Gif 이미지가 나오도록 하였습니다. public/images 교체하셔서 사용하시면 됩니다.
+
 const titleImage = "Asset1.png";
 const titleImageGif = "Asset1.png";
 
@@ -11,15 +12,15 @@ const Title: FC = () => {
 
   return (
     <Flex
-      minH="100vh"
-      justifyContent="space-between"
       alignItems="center"
       flexDir="column"
       id="Title"
       px={4}
       w="full"
     >
-      <Box height={20}></Box>
+      
+      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="160">
+      </Box>
       <Box position="relative">
         <Image
           src={`../images/${titleImage}`}

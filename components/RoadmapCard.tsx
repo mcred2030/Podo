@@ -28,7 +28,7 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
   return (
     <Flex
       ref={dom}
-      w="60%"
+      w="70%"
       justifyContent={justifyContent}
       className={isAnimated ? "animate__animated animate__" + animation : ""}
     >

@@ -25,15 +25,15 @@ const About: FC = () => {
   return (
    
     <Flex
-      minH="100vh"
-      justifyContent="space-between"
       alignItems="center"
       flexDir="column"
       id="About"
       px={4}
       w="full"
       >
-      <Box height={20}></Box>
+      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="160">
+        {t("")}
+      </Box>
       <Box position="relative">
       <Image
             src={`../images/${aboutImage}`}
