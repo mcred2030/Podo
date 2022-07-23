@@ -24,6 +24,7 @@ const Story: FC = () => {
 
   return (
     <Flex
+    alignItems="center"
       flexDir="column"
       id="Story"
       px={4}
