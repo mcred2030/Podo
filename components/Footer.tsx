@@ -3,7 +3,7 @@ import { FC } from "react";
 
 // @ 팀 주소 및 카피라이트에 관한 정보를 입력합니다.
 const contactInfo =
-  "Club PODOS NFT ";
+  " Club PODOS NFT ";
 const copyRight = "COPYRIGHT © Club PODOS NFT. ALL RIGHT RESERVED";
 
 const Footer: FC = () => {
