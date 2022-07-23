@@ -1,25 +1,23 @@
-import { Box, Flex, Text, Image, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
 import { useAnimate } from "hooks";
 import React, { FC } from "react";
 
-interface RoadmapCardProps {
+interface QnACardProps {
   justifyContent: string;
   animation: string;
   title: string;
   description: string;
   color: string;
   colorDark: string;
-  images: string;
 }
 
-const RoadmapCard: FC<RoadmapCardProps> = ({
+const QnACard: FC<QnACardProps> = ({
   justifyContent,
   animation,
   title,
   description,
   color,
   colorDark,
-  images
 }) => {
   const { isAnimated, dom } = useAnimate();
 
@@ -34,22 +32,23 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
     >
       <Flex
         w={["full", "full", "100%"]}
+        rounded="2xl"
         m={2}
         px={16}
         py={4}
         justifyContent="center"
         flexDir="column"
+        shadow="lg"
       >
-        
-        <Image
-            src={`../images/${images}`}
-            borderRadius="2xl"
-            alt="roadmap"
-          />
-        
+        <Text fontSize={["md", "md", "1xl"]} fontWeight="bold">
+          {title}
+        </Text>
+        <Text mt={2} fontSize={["xs", "xs", "md"]}>
+          {description}
+        </Text>
       </Flex>
     </Flex>
   );
 };
 
-export default RoadmapCard;
+export default QnACard;

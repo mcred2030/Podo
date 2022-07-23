@@ -3,8 +3,8 @@ import { FC } from "react";
 
 // @ 팀 주소 및 카피라이트에 관한 정보를 입력합니다.
 const contactInfo =
-  "Team ProjectLion NFT | 443, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea | E-Mail h662@olbm.app";
-const copyRight = "COPYRIGHT © Team ProjectLion NFT. ALL RIGHT RESERVED";
+  "Club PODOS NFT ";
+const copyRight = "COPYRIGHT © Club PODOS NFT. ALL RIGHT RESERVED";
 
 const Footer: FC = () => {
   const { colorMode } = useColorMode();

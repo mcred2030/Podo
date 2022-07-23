@@ -12,7 +12,6 @@ const roadmapCardConfig = [
     description: "roadmap1",
     color: "yellow",
     colorDark: "purple",
-    images: "roadmapImage1",
   },
   {
     justifyContent: "end",
@@ -21,7 +20,6 @@ const roadmapCardConfig = [
     description: "roadmap2",
     color: "yellow",
     colorDark: "purple",
-    images: "roadmapImage2",
   },
   {
     justifyContent: "",
@@ -30,7 +28,38 @@ const roadmapCardConfig = [
     description: "roadmap3",
     color: "yellow",
     colorDark: "purple",
-    images: "roadmapImage3",
+  },
+  {
+    justifyContent: "end",
+    animation: "slideInRight",
+    title: "roadmapTitle4",
+    description: "roadmap4",
+    color: "yellow",
+    colorDark: "purple",
+  },
+  {
+    justifyContent: "",
+    animation: "slideInLeft",
+    title: "roadmapTitle5",
+    description: "roadmap5",
+    color: "yellow",
+    colorDark: "purple",
+  },
+  {
+    justifyContent: "end",
+    animation: "slideInRight",
+    title: "roadmapTitle6",
+    description: "roadmap6",
+    color: "yellow",
+    colorDark: "purple",
+  },
+  {
+    justifyContent: "",
+    animation: "slideInLeft",
+    title: "roadmapTitle7",
+    description: "roadmap7",
+    color: "yellow",
+    colorDark: "purple",
   },
 ];
 
@@ -46,7 +75,7 @@ const Roadmap: FC = () => {
       mb={24}
     >
       <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16}>
-        {t("")}
+        {t("roadmap")}
       </Box>
       {roadmapCardConfig.map((v, i) => {
         return (
@@ -58,7 +87,6 @@ const Roadmap: FC = () => {
             description={t(v.description)}
             color={v.color}
             colorDark={v.colorDark}
-            images={t(v.images)}
           />
         );
       })}

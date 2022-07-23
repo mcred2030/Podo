@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
 import { useAnimate } from "hooks";
 import React, { FC } from "react";
 
@@ -9,7 +9,6 @@ interface RoadmapCardProps {
   description: string;
   color: string;
   colorDark: string;
-  images: string;
 }
 
 const RoadmapCard: FC<RoadmapCardProps> = ({
@@ -19,7 +18,6 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
   description,
   color,
   colorDark,
-  images
 }) => {
   const { isAnimated, dom } = useAnimate();
 
@@ -28,25 +26,31 @@ const RoadmapCard: FC<RoadmapCardProps> = ({
   return (
     <Flex
       ref={dom}
-      w="60%"
+      w="80%"
       justifyContent={justifyContent}
       className={isAnimated ? "animate__animated animate__" + animation : ""}
     >
       <Flex
-        w={["full", "full", "100%"]}
+        w={["full", "full", "50%"]}
+        bgGradient={
+          colorMode === "light"
+            ? `linear(to-b, ${color}.100, ${color}.200, ${color}.300, ${color}.400)`
+            : `linear(to-b, ${color}.300, ${color}.500, ${color}.700, ${color}.900)`
+        }
+        rounded="2xl"
         m={2}
         px={16}
         py={4}
         justifyContent="center"
         flexDir="column"
+        shadow="lg"
       >
-        
-        <Image
-            src={`../images/${images}`}
-            borderRadius="2xl"
-            alt="roadmap"
-          />
-        
+        <Text fontSize={["md", "md", "2xl"]} fontWeight="bold">
+          {title}
+        </Text>
+        <Text mt={2} fontSize={["xs", "xs", "md"]}>
+          {description}
+        </Text>
       </Flex>
     </Flex>
   );

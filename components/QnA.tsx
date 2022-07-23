@@ -1,56 +1,69 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
-import RoadmapCard from "./RoadmapCard";
+import QnACard from "./QnACard";
 
 // @ 로드맵에 맞게 추가, 삭제하여 작성해주시면 됩니다. 로드맵의 타이틀과 설명은 public/locales 의 json 파일을 작성 후 NextJS를 재 실행 해야 합니다.
-const roadmapCardConfig = [
+const QnACardConfig = [
   {
     justifyContent: "",
     animation: "slideInLeft",
-    title: "roadmapTitle1",
-    description: "roadmap1",
+    title: "qna1",
+    description: "qnare1",
     color: "yellow",
     colorDark: "purple",
-    images: "roadmapImage1",
   },
   {
     justifyContent: "end",
     animation: "slideInRight",
-    title: "roadmapTitle2",
-    description: "roadmap2",
+    title: "qna2",
+    description: "qnare2",
     color: "yellow",
     colorDark: "purple",
-    images: "roadmapImage2",
   },
   {
     justifyContent: "",
     animation: "slideInLeft",
-    title: "roadmapTitle3",
-    description: "roadmap3",
+    title: "qna3",
+    description: "qnare3",
     color: "yellow",
     colorDark: "purple",
-    images: "roadmapImage3",
+  },
+  {
+    justifyContent: "end",
+    animation: "slideInRight",
+    title: "qna4",
+    description: "qnare4",
+    color: "yellow",
+    colorDark: "purple",
+  },
+  {
+    justifyContent: "",
+    animation: "slideInLeft",
+    title: "qna5",
+    description: "qnare5",
+    color: "yellow",
+    colorDark: "purple",
   },
 ];
 
-const Roadmap: FC = () => {
+const QnA: FC = () => {
   const { t } = useTranslation("common");
 
   return (
     <Flex
       minH="100vh"
       alignItems="center"
-      id="Roadmap"
+      id="Q&A"
       flexDir="column"
       mb={24}
     >
       <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16}>
         {t("")}
       </Box>
-      {roadmapCardConfig.map((v, i) => {
+      {QnACardConfig.map((v, i) => {
         return (
-          <RoadmapCard
+          <QnACard
             key={i}
             justifyContent={v.justifyContent}
             animation={v.animation}
@@ -58,7 +71,6 @@ const Roadmap: FC = () => {
             description={t(v.description)}
             color={v.color}
             colorDark={v.colorDark}
-            images={t(v.images)}
           />
         );
       })}
@@ -66,4 +78,4 @@ const Roadmap: FC = () => {
   );
 };
 
-export default Roadmap;
+export default QnA;

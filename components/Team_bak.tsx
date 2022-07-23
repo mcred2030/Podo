@@ -7,29 +7,29 @@ import TeamCard from "./TeamCard";
 const teamCardConfig = [
   {
     name: "JS Park",
-    position: "Project Manager",
-    image: "team01.png",
+    position: "Product Manager",
+    image: "team1.png",
     color: "blue",
     animation: "tada",
   },
   {
     name: "DN Choi",
     position: "Marketing",
-    image: "team02.png",
+    image: "team3.png",
     color: "green",
     animation: "tada",
   },
   {
     name: "WJ Jeon",
     position: "Graphic Design",
-    image: "team03.png",
+    image: "team2.png",
     color: "yellow",
     animation: "tada",
   },
   {
     name: "JH Lee",
     position: "Brand Design",
-    image: "team04.png",
+    image: "team3.png",
     color: "purple",
     animation: "tada",
   },
@@ -37,7 +37,7 @@ const teamCardConfig = [
   {
     name: "BR Song",
     position: "Smart Contract",
-    image: "team05.png",
+    image: "team4.png",
     color: "red",
     animation: "tada",
   },
@@ -49,7 +49,7 @@ const Team: FC = () => {
   return (
     <Flex minH="100vh" alignItems="center" id="Team" flexDir="column">
       <Box fontSize="6xl" fontWeight="bold" mt={4}>
-        {t("")}
+        {t("team")}
       </Box>
       <Grid
         mt={16}
