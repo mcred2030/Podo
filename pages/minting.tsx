@@ -39,6 +39,7 @@ const Minting: NextPage = () => {
       const response = await caver?.klay.sendTransaction({
         type: "SMART_CONTRACT_EXECUTION",
         from: account,
+        value: caver?.utils.convertToPeb(5, "KLAY"),
         to: MINT_NFT_ADDRESS,
         gas: 3000000,
         data: mintNFTContract?.methods.mintNFT().encodeABI(),
@@ -82,7 +83,7 @@ const Minting: NextPage = () => {
     <Flex
       justifyContent="center"
       alignItems="center"
-      minH="100vh"
+      minH="140vh"
       flexDir="column"
     >
       {account === "" ? (
@@ -123,19 +124,19 @@ const Minting: NextPage = () => {
             <Image
               src={newNFT.image}
               borderRadius="lg"
-              fallbackSrc="../images/loading.png"
+              fallbackSrc="../images/reveal.png"
               alt="nft"
             />
           ) : (
             <Image
-              src="../images/loading.png"
+              src="../images/reveal.png"
               borderRadius="lg"
               alt="loading"
             />
           )}
         </Flex>
         <Flex ml={8} direction="column" minH={512} minW={300}>
-          <Text>Price : 0 Klay</Text>
+          <Text>Price : 5 Klay</Text>
           <Button
             size="lg"
             colorScheme="green"

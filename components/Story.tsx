@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { FC } from "react";
 
 // @ 이미지는 public/images, 스토리 내용은 public/locales의 json 파일을 각각 수정해서 사용하시면 됩니다.
-const storyImage = "03_Story_cut.png";
+const storyImage = "story.png";
 const storyConfig = [
   {
     mt: 0,

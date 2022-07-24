@@ -29,11 +29,12 @@ const Menu: FC = () => {
       top="65px"
       justifyContent="space-between"
       alignItems="center"
-      flexDir="column"
+      flexDir={["column", "column"]}
       px={4}
       minH="20vh"
       zIndex={1}
       bgColor="white"
+      height={"100px"}
       >
      
      <Box position="relative">

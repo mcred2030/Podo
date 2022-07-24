@@ -34,6 +34,7 @@ const Header: FC = () => {
       zIndex={2}
       flexDir={["column", "column", "row"]}
       bgColor="white"
+      height={"70px"}
     >
      
 
