@@ -11,9 +11,9 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 
 const logoImage = "logo01.png";
 const logoImageDark = "logo01.png";
-const openseaURL = "https://testnets.opensea.io/collection/projectlion-nft";
+const openseaURL = "https://opensea.io/collection/club-podos-nft";
 const discordURL = "https://discord.gg/fndEYmt7";
-const instagramURL = "https://www.instagram.com/projectlion.io/";
+const instagramURL = "#";
 
 const Header: FC = () => {
   const scrollLink = ["About","Story", "Roadmap", "Team", "Q&A"];
