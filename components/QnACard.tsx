@@ -26,7 +26,8 @@ const QnACard: FC<QnACardProps> = ({
   return (
     <Flex
       ref={dom}
-      w="60%"
+      w="100%"
+      maxW={"1024px"}
       justifyContent={justifyContent}
       className={isAnimated ? "animate__animated animate__" + animation : ""}
     >
