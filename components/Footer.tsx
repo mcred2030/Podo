@@ -16,6 +16,8 @@ const Footer: FC = () => {
       flexDir="column"
       p={[4, 4, 2]}
       bgColor={colorMode === "light" ? "gray.100" : "gray.900"}
+      id="Footer"
+      w="full"
     >
       <Text fontSize={["xs", "xs", "sm"]}>{contactInfo}</Text>
       <Text fontSize="xs" mt={1}>
