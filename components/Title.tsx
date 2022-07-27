@@ -19,7 +19,7 @@ const Title: FC = () => {
       w="full"
     >
       
-      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="160">
+      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="180">
       </Box>
       <Box position="relative">
         <Image

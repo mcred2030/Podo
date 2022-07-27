@@ -31,10 +31,12 @@ const Menu: FC = () => {
       alignItems="center"
       flexDir={["column", "column"]}
       px={4}
-      minH="20vh"
+      minH="10vh"
       zIndex={1}
       bgColor="white"
       height={"100px"}
+      paddingTop={"40px"}
+      paddingBottom={"150px"}
       >
      
      <Box position="relative">
