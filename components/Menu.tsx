@@ -60,6 +60,7 @@ const Menu: FC = () => {
             </ScrollLink>
           );
         })}
+        <button type="button" className="chakra-button css-1tn363u" onClick={() => location.href="/minting"}>Minting</button>
       </Box>
 
       

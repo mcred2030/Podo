@@ -12,11 +12,11 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 const logoImage = "logo01.png";
 const logoImageDark = "logo01.png";
 const openseaURL = "https://opensea.io/collection/club-podos-nft";
-const discordURL = "https://discord.gg/fndEYmt7";
+const discordURL = "https://discord.gg/ymzCY9YD";
 const instagramURL = "#";
 
 const Header: FC = () => {
-  const scrollLink = ["About","Story", "Roadmap", "Team", "Q&A"];
+  const scrollLink = ["About","Story", "Roadmap", "Team", "Q&A", "Mint"];
 
   const router = useRouter();
 

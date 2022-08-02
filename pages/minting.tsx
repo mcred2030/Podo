@@ -86,6 +86,9 @@ const Minting: NextPage = () => {
       minH="140vh"
       flexDir="column"
     >
+      <Box fontSize="6xl" fontWeight="bold" mt={4} mb={16} height="0">
+      
+      </Box>
       {account === "" ? (
         <Button onClick={onClickKaikas} size="lg" colorScheme="orange">
           <Image
